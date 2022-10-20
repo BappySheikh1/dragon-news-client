@@ -1,26 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UseContexts';
 
 
 const Register = () => {
+    const [error,setError]=useState('')
     const {createUser,userDisplayName}=useContext(AuthContext)
+    const navigate=useNavigate()
 
     const handleSubmit =event=>{
         event.preventDefault();
         const form =event.target
         const name =form.name.value
+        const photoURL=form.photoURL.value
         const email =form.email.value
         const password =form.password.value
-        console.log(name,email,password);
+        console.log(name,photoURL,email,password);
         createUser(email,password)
         .then(result =>{
             const user=result.user
             console.log(user);
-            form.reset()
-            updateUserName(name)
-        }).catch(error => console.log(error))
+            form.reset();
+            updateUserName(name);
+            setError('');
+            navigate('/')
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message)
+        })
     }
 
     // userProfileUpdate
@@ -29,7 +39,10 @@ const Register = () => {
         .then(()=>{
 
         })
-        .catch((error)=> console.log(error))
+        .catch((error)=>{
+            console.log(error)
+            setError(error.message)
+        })
     }
     return (
         <div>
@@ -39,6 +52,11 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
                     <Form.Control type="text" name='name' placeholder="Enter name" required/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicphotoURL">
+                    <Form.Label>photoURL</Form.Label>
+                    <Form.Control type="text" name='photoURL' placeholder="Enter photoURL" required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -56,7 +74,7 @@ const Register = () => {
                 </Button>
                 <br />
                 <Form.Text className="text-danger">
-                        {}
+                        {error}
                </Form.Text>
             </Form>
         </div>
