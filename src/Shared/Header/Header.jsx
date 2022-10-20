@@ -65,7 +65,7 @@ const Header = () => {
                 roundedCircle 
                 src={user?.photoURL} />
               : 
-              <FaUser />
+              <FaUser className='text-dark' />
             }
             </Nav.Link>
           </Nav>

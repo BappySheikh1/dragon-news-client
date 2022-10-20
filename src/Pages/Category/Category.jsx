@@ -11,7 +11,7 @@ const Category = () => {
         <div>
             <h4>All Category : {categoryNews.length}</h4>
             {
-                categoryNews.map(news => <NewsSummaryCards key={news.category_id}
+                categoryNews.map(news => <NewsSummaryCards key={news._id}
                 news={news}></NewsSummaryCards>)
             }
         </div>
