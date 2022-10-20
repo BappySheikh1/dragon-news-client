@@ -24,7 +24,7 @@ const Register = () => {
                 const user = result.user
                 console.log(user);
                 form.reset();
-                updateUserName(name);
+                updateUserName(name,photoURL);
                 setError('');
                 navigate('/')
             })
@@ -35,8 +35,12 @@ const Register = () => {
     }
 
     // userProfileUpdate
-    const updateUserName = (name) => {
-        userDisplayName(name)
+    const updateUserName = (name,photoURL) => {
+        const profile={
+            displayName:name,
+            photoURL: photoURL
+        }
+        userDisplayName(profile)
             .then(() => {
 
             })

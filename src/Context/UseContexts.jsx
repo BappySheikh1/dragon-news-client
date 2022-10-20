@@ -26,8 +26,8 @@ const UseContexts = ({children}) => {
     }
 
     // user displayName
-    const userDisplayName=(name)=>{
-        return updateProfile(auth.currentUser,{displayName: name })
+    const userDisplayName=(profile)=>{
+        return updateProfile(auth.currentUser,profile)
     }
 
     // logout handle
