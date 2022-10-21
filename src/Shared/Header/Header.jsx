@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Context/UseContexts';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
@@ -42,7 +42,7 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">
+            <>
               {
                 user ? 
                 <>
@@ -56,7 +56,7 @@ const Header = () => {
                 </>
               }
               
-              </Nav.Link>
+              </>
             <Nav.Link>
               {
               user?.uid ?

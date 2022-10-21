@@ -53,7 +53,17 @@ const UseContexts = ({children}) => {
         return ()=> unsubcribe();
     },[])
   
-    const authInfo={user,providerLogin,LogOut,createUser,LogInUser,userDisplayName,loadding,verifyEmail}
+    const authInfo={
+        user,
+        providerLogin
+        ,LogOut,
+        createUser,
+        LogInUser,
+        userDisplayName,
+        loadding,
+        verifyEmail,
+        setLoadding
+    }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

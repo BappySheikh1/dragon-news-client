@@ -19,11 +19,11 @@ const NewsSummaryCards = ({news}) => {
                    style={{height:"60px"}}
                  ></Image>
                  <div>
-                    <p>
+                    <>
                         name: {author?.name ? author?.name : "author name not found"}
                         <br />
                         Publish Date: {author?.published_date ? author?.published_date : 'No published date data'}
-                    </p>
+                    </>
                     
                  </div>
                 </div>

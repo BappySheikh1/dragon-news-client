@@ -7,7 +7,7 @@ import { AuthContext } from '../../Context/UseContexts';
 
 const Login = () => {
     const [error,setError]=useState('')
-    const {LogInUser}=useContext(AuthContext)
+    const {LogInUser,setLoadding}=useContext(AuthContext)
     const navigate=useNavigate();
     const location=useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -34,6 +34,9 @@ const Login = () => {
         .catch(error =>{
             console.log(error)
             setError(error.message)
+        })
+        .finally(()=>{
+            setLoadding(false)
         })
     }
 
