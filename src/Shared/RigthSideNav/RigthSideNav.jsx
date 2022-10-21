@@ -5,15 +5,14 @@ import { FaGithub, FaGoogle,FaFacebook,FaTwitter,FaWhatsapp,FaTwitch } from 'rea
 import ListGroup from 'react-bootstrap/ListGroup';
 import BrandCarousel from '../BrandCarousel/BrandCarousel';
 import { AuthContext } from '../../Context/UseContexts';
-import { GoogleAuthProvider } from 'firebase/auth';
+
 
 
 const RigthSideNav = () => {
     const {providerLogin}=useContext(AuthContext)
-     const googleprovider= new GoogleAuthProvider();
-
+    
      const handleGoogoleSignIn=()=>{
-        providerLogin(googleprovider)
+        providerLogin()
         .then(result=>{
             const user=result.user
             console.log(user);

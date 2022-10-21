@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
 export const  AuthContext = createContext();
@@ -9,8 +9,10 @@ const UseContexts = ({children}) => {
     const [loadding,setLoadding]=useState(true)
     
     // Google popup login
-    const providerLogin=(provider)=>{
-        setLoadding(true)
+    const googleProvider= new GoogleAuthProvider();
+    const providerLogin=()=>{
+        setLoadding(true);
+        return signInWithPopup(auth,googleProvider)
     }
 
     // create user email and passwor
