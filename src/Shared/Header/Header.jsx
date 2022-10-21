@@ -57,7 +57,7 @@ const Header = () => {
               }
               
               </>
-            <Nav.Link>
+            <Link to='/profile'>
               {
               user?.uid ?
               <Image
@@ -67,7 +67,7 @@ const Header = () => {
               : 
               <FaUser className='text-dark' />
             }
-            </Nav.Link>
+            </Link>
           </Nav>
           <div className='d-lg-none'>
             <LeftSideNav />

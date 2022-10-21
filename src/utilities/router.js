@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "../Pages/Others/Terms/TermsAndConditions";
+import Profile from "../Pages/Others/Profile/Profile";
 
 export const router =createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const router =createBrowserRouter([
             {
                 path:'/terms',
                 element:<TermsAndConditions />
+            },
+            {
+                path:'/profile',
+                element:<PrivateRoute><Profile /></PrivateRoute>
             }
         ]
     }
