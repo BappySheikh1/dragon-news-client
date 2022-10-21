@@ -6,7 +6,7 @@ export const  AuthContext = createContext();
 const auth=getAuth(app)
 const UseContexts = ({children}) => {
     const [user,setUser]=useState({})
-    const [loadding,setLoadding]=useState(true)
+    const [loadding,setLoadding]=useState(true) 
     
     // Google popup login
     const googleProvider= new GoogleAuthProvider();
